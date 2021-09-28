@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>owl 2</title>
+    <!-- OwlCarousel  -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .wrapper .owl-nav {
+            color: red;
+        }
+        
+        .wrapper .owl-dot.active span {
+            width: 30px !important;
+            background-color: red !important;
+        }
+        
+        .wrapper .owl-dot:hover span {
+            width: 30px !important;
+            background-color: red !important;
+        }
+        
+        .wrapper {
+            padding: 0 70px;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: #000;
+        }
+        
+        .wrapper .owl-prev,
+        .wrapper .owl-next {
+            position: absolute;
+            top: 44%;
+            font-size: 2rem !important;
+            background-color: #fff !important;
+            width: 50px;
+            height: 50px;
+            font-weight: bold;
+            border-radius: 100% !important;
+        }
+        
+        .wrapper .owl-prev b,
+        .wrapper .owl-next b {
+            position: relative;
+            top: -2px;
+        }
+        
+        .wrapper .owl-prev:hover,
+        .wrapper .owl-next:hover {
+            color: #000 !important;
+        }
+        
+        .wrapper .owl-prev {
+            left: -50px;
+        }
+        
+        .wrapper .owl-next {
+            right: -50px;
+        }
+        
+        .items {
+            border: 4px solid red;
+            height: 400px;
+            background-image: url("abstract-6297317_1920.jpg");
+            background-size: cover;
+            font-size: 4rem;
+            color: #Fff;
+        }
+        .wrapper .owl-item{
+            opacity: .7;
+            transform: scale(.9);
+        }
+        .wrapper .owl-item.center{
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="owl-carousel owl-theme img-carousel">
+
+
+            <div class="items">1
+            </div>
+            <div class="items">2
+            </div>
+            <div class="items">3
+            </div>
+            <div class="items">4
+            </div>
+            <div class="items">5
+            </div>
+            <div class="items">6
+            </div>
+            <div class="items">7
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- jquery  -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.mousewheel.min.js"></script>
+
+    <script>
+        var owl = $(".img-carousel");
+        owl.owlCarousel({
+            margin: 15,
+            loop: true,
+            stagePadding: 10,
+            nav: true,
+            navText: ["<b>‹</b>", "<b>›</b>"],
+            merge: true,
+            center: true,
+            dotsEach: true,
+            autoplayHoverPause: true,
+            animateOut: 'flipInY',
+            animateIn: 'flipInY',
+            autoplay: true,
+            rewind: true,
+            autoplayTimeout: 10000,
+            responsive: {
+                0: {
+                    items: 1
+                },
+
+                900: {
+                    items: 3
+                }
+            }
+        });
+        owl.on('mousewheel', '.owl-stage', function(e) {
+            if (e.deltaY > 0) {
+                owl.trigger('next.owl');
+            } else {
+                owl.trigger('prev.owl');
+            }
+            e.preventDefault();
+        });
+    </script>
+</body>
+
+</html>
